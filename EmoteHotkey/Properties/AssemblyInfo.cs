@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using MelonLoader;
+using System;
 
 [assembly: AssemblyTitle(EmojiHotkey.Main.Name)]
 [assembly: AssemblyDescription(EmojiHotkey.Main.Description)]
@@ -10,7 +11,7 @@ using MelonLoader;
 [assembly: AssemblyVersion(EmojiHotkey.Main.Version)]
 [assembly: AssemblyFileVersion(EmojiHotkey.Main.Version)]
 [assembly: MelonInfo(typeof(EmojiHotkey.EmojiHotkey), EmojiHotkey.Main.Name, EmojiHotkey.Main.Version, EmojiHotkey.Main.Author, EmojiHotkey.Main.DownloadLink)]
-[assembly: MelonColor()]
+[assembly: MelonColor(ConsoleColor.DarkGray)]
 
 // Create and Setup a MelonGame Attribute to mark a Melon as Universal or Compatible with specific Games.
 // If no MelonGame Attribute is found or any of the Values for any MelonGame Attribute on the Melon is null or empty it will be assumed the Melon is Universal.
