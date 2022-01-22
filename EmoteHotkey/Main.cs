@@ -25,8 +25,8 @@ namespace EmojiHotkey
         public override void OnUpdate()
         {            
              if (Input.GetMouseButtonDown(2))
-             {            
-                SendEmoji(55);               
+             {
+                SendEmoji(55);            
              }
                        
         }
