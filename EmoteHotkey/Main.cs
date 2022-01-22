@@ -60,7 +60,7 @@ namespace EmojiHotkey
                        
         }
        
-        private static void SendEmoji(int Number)1
+        private static void SendEmoji(int Number)
         {           
             string EmojiNumber1 = MelonPreferences.GetEntryValue<string>("EmojiHotkey", "EmojiNumber");
             MelonLogger.Msg(ConsoleColor.Green, $"Sending Emoji {EmojiNumber1}");
