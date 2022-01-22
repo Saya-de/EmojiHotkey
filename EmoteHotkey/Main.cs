@@ -27,6 +27,7 @@ namespace EmojiHotkey
              if (Input.GetMouseButtonDown(2))
              {            
                 SendEmoji(55);
+                MelonLogger.Msg("test");
              }
                        
         }
