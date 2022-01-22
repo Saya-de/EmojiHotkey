@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,19 +23,39 @@ namespace EmojiHotkey
 
     public class EmojiHotkey : MelonMod
     {
+        public override void OnApplicationStart()
+        {
+            MelonCoroutines.Start(ReadyUIEX());          
+        }
+
+        public static IEnumerator ReadyUIEX()
+        {
+           
+            UIEX();
+            yield return null;
+
+        }
+      
         public override void OnUpdate()
         {            
              if (Input.GetMouseButtonDown(2))
              {
-                SendEmoji(55);     
+                int number = MelonPreferences.GetEntryValue<int>("EmojiHotkey", "EmojiNumber");
+                SendEmoji(number);     
              }
                        
+        }
+        public static void UIEX()
+        {
+            string EmojiHotkey1 = "EmojiHotkey";
+            MelonPreferences.CreateCategory(EmojiHotkey1,"EmojiHotkey");
+            MelonPreferences.CreateEntry<int>(EmojiHotkey1, "EmojiNumber", 55);
         }
 
 
         private static void SendEmoji(int Number)
         {
-            MelonLogger.Msg(ConsoleColor.Green, $"Sending Emoji 55");
+            MelonLogger.Msg(ConsoleColor.Green, $"Sending Emoji {Number}");
             Networking.RPC(RPC.Destination.All,
                 LocalVRCPlayer.gameObject,
                 "SpawnEmojiRPC",
