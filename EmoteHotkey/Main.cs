@@ -35,7 +35,14 @@ namespace EmojiHotkey
             yield return null;
 
         }
-      
+
+        public static void UIEX()
+        {
+            string EmojiHotkey1 = "EmojiHotkey";
+            MelonPreferences.CreateCategory(EmojiHotkey1, "EmojiHotkey");
+            MelonPreferences.CreateEntry<int>(EmojiHotkey1, "EmojiNumber", 55);
+        }
+
         public override void OnUpdate()
         {            
              if (Input.GetMouseButtonDown(2))
@@ -45,14 +52,7 @@ namespace EmojiHotkey
              }
                        
         }
-        public static void UIEX()
-        {
-            string EmojiHotkey1 = "EmojiHotkey";
-            MelonPreferences.CreateCategory(EmojiHotkey1,"EmojiHotkey");
-            MelonPreferences.CreateEntry<int>(EmojiHotkey1, "EmojiNumber", 55);
-        }
-
-
+       
         private static void SendEmoji(int Number)
         {
             MelonLogger.Msg(ConsoleColor.Green, $"Sending Emoji {Number}");
