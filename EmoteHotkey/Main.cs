@@ -25,19 +25,12 @@ namespace EmojiHotkey
     public class EmojiHotkey : MelonMod
     {
         public override void OnApplicationStart()
-        {         
-            MelonCoroutines.Start(ReadyUIEX());
-            
-        }
-
-        public static IEnumerator ReadyUIEX()
         {
-           
             UIEX();
-            yield return null;
-
+            MelonLogger.Msg("EmojiHotkey by Saya");
         }
 
+       
         public static void UIEX()
         {
             
@@ -49,14 +42,14 @@ namespace EmojiHotkey
 
         public override void OnUpdate()
         {
+
             
-             //int Hotkey = MelonPreferences.GetEntryValue<int>("EmojiHotkey", "Hotkey");
-             if (Input.GetMouseButtonDown(2))
-             {
+            if (Input.GetMouseButtonDown(2))
+            {
                 string EmojiNumber = MelonPreferences.GetEntryValue<string>("EmojiHotkey", "EmojiNumber");
                 var Parsed = Int16.Parse(EmojiNumber);                               
                 SendEmoji(Parsed);     
-             }
+            }
                        
         }
        
